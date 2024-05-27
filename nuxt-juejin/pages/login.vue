@@ -5,10 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import { useUser } from '../store/user'
 
-const isLogin = useLogin()
+// const isLogin = useLogin()
+const store = useUser()
+const { isLogin } = storeToRefs(store)
 const route = useRoute()
 const router = useRouter()
 const onLogin = () => {
