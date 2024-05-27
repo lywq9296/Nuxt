@@ -13,13 +13,18 @@
 </template>
 
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia'
+import { useUser } from '~/store/user'
+
 const route = useRoute()
 const router = useRouter()
+const store = useUser()
+const { isLogin } = storeToRefs(store)
 // const { title, content } = await $fetch('/api/detail/' + router.params.id)
 const fetchPost = () => $fetch(`/api/detail/${route.params.id}`)
 const { data, pending } = useAsyncData(fetchPost)
 const comment = useState('comment', () => '')
-const isLogin = useLogin()
+// const isLogin = useLogin()
 const toast = useToast()
 const onSubmit = () => {
   if (isLogin.value) {

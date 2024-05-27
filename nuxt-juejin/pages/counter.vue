@@ -12,6 +12,11 @@
 </template>
 
 <script setup lang="ts">
-const counter = useState('counter', () => Math.round(Math.random() * 1000))
+import { storeToRefs } from 'pinia'
+
+// const counter = useState('counter', () => Math.round(Math.random() * 1000))
 const counterRef = ref(Math.round(Math.random() * 1000))
+
+const store = useCounter()
+const { value: counter } = storeToRefs(store)
 </script>
