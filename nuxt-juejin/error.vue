@@ -13,7 +13,7 @@
 const props = defineProps({
   error: Object,
 })
-console.log(props.error)
+console.log('props.error', props.error)
 const retry = () => (window.location.href = props.error!.url)
 const handleError = () => clearError({ redirect: '/' })
 </script>

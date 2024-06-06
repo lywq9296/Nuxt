@@ -6,4 +6,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('vue:error', () => {
     console.log('vue:error')
   })
+
+  nuxtApp.hook('app:error', () => {
+    console.log('app:error')
+  })
 })
